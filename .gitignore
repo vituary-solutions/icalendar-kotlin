@@ -1,0 +1,13 @@
+# Ignore Gradle project-specific cache and build output directories
+.gradle
+build
+
+# Ignore sample ics files in my root directory
+/*.ics
+
+# Ignore IntelliJ IDEA project directory
+.idea
+*.iml
+*.ipr
+*.iws
+out
