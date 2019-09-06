@@ -112,4 +112,20 @@ class RecurrenceGeneratorTest {
 
         assertEquals(expected, actual)
     }
+
+    @Test fun `invalid dates should be ignored`() {
+        val startDate = LocalDate.of(2019, 1,30)
+        val recurrenceRule = RecurrenceRuleProperty("FREQ=MONTHLY;BYMONTHDAY=30;COUNT=3")
+        val generator = RecurrenceGenerator(recurrenceRule, startDate)
+
+        val expected = listOf(
+                startDate,
+                LocalDate.of(2019, 3,30), // Skip February
+                LocalDate.of(2019, 4,30)
+        )
+
+        val actual = generator.calculateRecurrences()
+
+        assertEquals(expected, actual)
+    }
 }
