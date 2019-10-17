@@ -117,7 +117,7 @@ class Event(components: List<CalendarComponent> = ArrayList(), properties: List<
     val recurrences: List<Temporal>? = if (start != null && recurrenceRuleProperty != null) calculateRecurrences(start, recurrenceRuleProperty) else null
 
     init {
-        requireProperties(UID, DTSTAMP)
+        requireProperties(UID)
         require(startTimeProperty != null || context.method != null) { "A $DTSTART property is required when the calendar doesn't have a $METHOD property" }
         require(endTimeProperty == null || durationProperty == null) { "Only one of the $DTEND or $DURATION properties is allowed" }
 
