@@ -1,1 +1,1 @@
-rootProject.name = "icalendar-kotlin"
+rootProject.name = "vituary-icalendar"
